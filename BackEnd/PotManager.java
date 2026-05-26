@@ -16,6 +16,7 @@ public class PotManager {
         contributors.sort(Comparator.comparingInt(a -> a.totalBet));
 
         int prev = 0;
+        int carry = 0;
         while (!contributors.isEmpty()) {
             int level = contributors.get(0).totalBet;
             if (level > prev) {
@@ -25,14 +26,23 @@ public class PotManager {
                 for (Player p : contributors) {
                     if (!p.folded) pot.eligible.add(p.name);
                 }
-                if (pot.eligible.isEmpty() && !pots.isEmpty()) {
-                    pots.get(pots.size() - 1).amount += pot.amount;
-                } else if (!pot.eligible.isEmpty()) {
+                if (pot.eligible.isEmpty()) {
+                    if (!pots.isEmpty()) {
+                        pots.get(pots.size() - 1).amount += pot.amount;
+                    } else {
+                        carry += pot.amount;
+                    }
+                } else {
+                    pot.amount += carry;
+                    carry = 0;
                     pots.add(pot);
                 }
                 prev = level;
             }
             contributors.remove(0);
+        }
+        if (carry > 0 && !pots.isEmpty()) {
+            pots.get(pots.size() - 1).amount += carry;
         }
     }
 
