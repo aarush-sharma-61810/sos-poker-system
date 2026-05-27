@@ -1,4 +1,4 @@
-package BackEnd;
+package backend;
 
 // player object with chips and current round values
 public class Player {

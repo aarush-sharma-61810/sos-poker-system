@@ -1,4 +1,4 @@
-package BackEnd;
+package             backend;
 
 // game configuration constants
 public class Config {

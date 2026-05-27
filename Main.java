@@ -1,5 +1,4 @@
-package BackEnd;
-
+package backend;
 import java.util.ArrayList;
 import java.util.Scanner;
 
