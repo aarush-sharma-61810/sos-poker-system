@@ -23,23 +23,23 @@ public class Main {
             game.startHand();
             System.out.println("Dealer: " + game.getPlayers().get(game.getDealerIndex()).getName());
 
-            // post blinds then start pre-flop betting
+            // post blinds then preflo
             game.postBlinds();
             runBettingRound(game, "Pre-flop");
             
-            // flop: 3 community cards dealt, new betting round
+            // flop 3 cards
             if (game.getActiveCount() > 1) {
                 game.startNewBettingRound();
                 runBettingRound(game, "Flop");
             }
             
-            // turn: 4th community card, another betting round
+            // turn 4th card
             if (game.getActiveCount() > 1) {
                 game.startNewBettingRound();
                 runBettingRound(game, "Turn");
             }
             
-            // river: 5th community card, final betting round
+            // river 5th card
             if (game.getActiveCount() > 1) {
                 game.startNewBettingRound();
                 runBettingRound(game, "River");
