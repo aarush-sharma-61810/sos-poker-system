@@ -1,15 +1,13 @@
-package             backend;
-
-// game configuration constants
+package backend;
 public class Config {
-    // how many chips each player starts with
+    // starting chips final
     private static final int startingStack = 1000;
     
-    // blind amounts at the start of each hand
-    // small blind is posted by the player after the dealer 
+    
+    // small blind is one after dealer 
     private static final int smallBlind = 5;
     
-    // big blind is posted by the next player 
+    // big blind is 2 after dealer
     private static final int bigBlind = 10;
 
 

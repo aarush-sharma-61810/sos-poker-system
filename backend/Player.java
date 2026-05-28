@@ -1,27 +1,27 @@
 package backend;
 
-// player object with chips and current round values
+
 public class Player {
-    private String name;  // player's name
-    private int chips;  // how many chips they have left
-    private int roundBet;  // how much they bet in this round so far
-    private boolean folded;  // did they quit this hand?
+    private String name;  
+    private int chips;  // chips left
+    private int roundBet;  // the player's total bet
+    private boolean folded;  // quit
 
     // make a player with the starting stack
     public Player(String name) {
         this.name = name;
-        this.chips = Config.getStartingStack();
-        this.roundBet = 0;  // no bets yet
-        this.folded = false;  // they're in the hand
+        chips = Config.getStartingStack();
+        roundBet = 0;  //no bet at start
+        folded = false;  
     }
 
-    // reset round info before each new hand
+    // reset round info 
     public void resetHand() {
-        this.roundBet = 0;  // clear their round bet
-        this.folded = false;  // they're back in the game
+        roundBet = 0;  
+        folded = false;  
     }
     
-    // getter and setter methods
+    
     public String getName() {
         return name;
     }
